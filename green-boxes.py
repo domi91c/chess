@@ -1,7 +1,8 @@
 import datetime
 import os
-
+from datetime import date, timedelta
 from random import randint
+
 
 def write_log(date):
   f = open('log.txt', 'a+')
@@ -15,30 +16,29 @@ def commit_github(date):
 def transformation(date) -> datetime.date:
   return datetime.timedelta(hours=randint(0, 24), minutes=randint(0, 60), seconds=randint(0, 60))
 
+
+def daterange(start_date, end_date):
+  for n in range(int ((end_date - start_date).days)):
+    yield start_date + timedelta(n)
+
+
 if __name__ == "__main__":
-  while True:
-    print('Please enter you want to commit date (like 20190902): ', end='')
+  print("Hello world")
+  commit_date = '20191101'
+  commit_count = 5
 
-    commit_date = input()
+  start_date = date(2019, 11, 1)
+  end_date = date(2019, 12, 1)
 
-    if commit_date == '' or len(commit_date) != 8:
-      print('\033[31mUnknown date, please enter the correct format !!')
-      exit(1)
+  for d in daterange(start_date, end_date):
+    commit_github(d)
+    print(d)
 
-    print('Please enter the number of times you want to commit, it must be a number value: ', end='')
+    #   while commit_count > 0:
+    #     date = datetime.datetime.strptime(commit_date, '%Y%m%d')
+    #     date += transformation(date)
 
-    commit_count = int(input())
+    #     write_log(date)
+    #     commit_github(date)
 
-    if commit_count <= 0:
-      print('\033[31mPlease enter number and it greater than zero !!')
-      exit(1)
-
-    while commit_count > 0:
-      date = datetime.datetime.strptime(commit_date, '%Y%m%d')
-      date += transformation(date)
-
-      write_log(date)
-      commit_github(date)
-
-      commit_count -= 1
-
+    #     commit_count -= 1
