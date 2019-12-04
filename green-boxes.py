@@ -25,14 +25,14 @@ def daterange(start_date, end_date):
 
 if __name__ == "__main__":
   print("Hello world")
-  commit_date = '20191001'
-  commit_count = 50
+  commit_count = 500
 
-  start_date = date(2019, 11, 1)
+  start_date = date(2019, 10, 1)
   end_date = date(2019, 12, 1)
 
   for d in daterange(start_date, end_date):
-    commit_github(d)
+    for i in range(commit_count):
+      commit_github(d)
 
     print(d)
 
