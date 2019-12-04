@@ -10,8 +10,9 @@ def write_log(date):
   f.close()
 
 def commit_github(date):
+  dstr = str(date).replace('-', '')
   os.system('git add .')
-  os.system('git commit --date={date} -m "Update {date}."'.format(date=date.isoformat()))
+  os.system('git commit --date={0} -m "Update {0}."'.format(dstr))
 
 def transformation(date) -> datetime.date:
   return datetime.timedelta(hours=randint(0, 24), minutes=randint(0, 60), seconds=randint(0, 60))
