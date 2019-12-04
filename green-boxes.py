@@ -25,8 +25,8 @@ def daterange(start_date, end_date):
 
 if __name__ == "__main__":
   print("Hello world")
-  commit_date = '20191101'
-  commit_count = 5
+  commit_date = '20191001'
+  commit_count = 50
 
   start_date = date(2019, 11, 1)
   end_date = date(2019, 12, 1)
