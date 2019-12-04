@@ -32,6 +32,7 @@ if __name__ == "__main__":
 
   for d in daterange(start_date, end_date):
     commit_github(d)
+
     print(d)
 
     #   while commit_count > 0:
